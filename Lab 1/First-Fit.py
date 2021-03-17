@@ -1,5 +1,5 @@
-blockSize=[100,500,200,300,600]
-jobSize=[212,417,112,426]
+blockSize=[30,15,50,20]
+jobSize=[10,20,30,10]
 fragment=[]
 blockNew=[]
 
