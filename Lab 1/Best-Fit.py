@@ -8,12 +8,15 @@ print("Job Size\t Memory block size\t Fragment")
 
 for i in range(len(jobSize)):
     low=9999
+    flag=0
     for j in range(len(blockSize)):
         frag=blockSize[j]-jobSize[i]
         if frag>=0:
             if low>frag:
                 low=frag
                 blockNew[i]=blockSize[j]
+                flag=j
+    blockSize.remove(blockSize[flag])
     fragment.append(low)
 
 for t in range(len(jobSize)):
