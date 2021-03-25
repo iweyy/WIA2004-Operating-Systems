@@ -17,7 +17,7 @@ def firstfit(blocksize,processsize):
             #check first fit
             if int(x)<=int(y):
                 #update block size
-                print (str(processsize.index(x)+1)+"\t\t"+str(x)+"\t\t"+str(blocksize.index(y))+"\t\t"+str(y-x))
+                print (str(processsize.index(x)+1)+"\t\t"+str(x)+"\t\t"+str(blocksize.index(y)+1)+"\t\t"+str(y-x))
                 #update current block size
                 blocksize[blocksize.index(y)] = -1
                 #update status for done block
