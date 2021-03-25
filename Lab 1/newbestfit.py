@@ -19,7 +19,7 @@ def bestfit(blocksize,processsize):
         #check if having a minimum block size to fit in
         if mini!=9999999:
             #print output
-            print (str(processsize.index(x)+1)+"\t\t"+str(x)+"\t\t"+str(blocksize.index(mini)+1)+"\t\t"+str(y-x))
+            print (str(processsize.index(x)+1)+"\t\t"+str(x)+"\t\t"+str(blocksize.index(mini)+1)+"\t\t"+str(mini-x))
             #update current block size
             blocksize[blocksize.index(mini)] = -1
         #if there are no other option to choose
