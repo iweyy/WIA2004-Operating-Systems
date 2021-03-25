@@ -13,7 +13,7 @@ def firstfit(blocksize,processsize):
             #check block status
             if flag == 1:
                 #pass the code
-                continue
+                break
             #check first fit
             if int(x)<=int(y):
                 #update block size
