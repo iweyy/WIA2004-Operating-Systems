@@ -2,7 +2,8 @@
 capacity = 4
 
 # initialize number of pages to be sent into memory
-set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
+# set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 9]
+set = [8, 2, 7, 4, 8, 6, 3, 5, 3, 1, 0, 7, 5, 9, 6]
 
 # initialize number of page slots in memory
 memory = []
@@ -11,9 +12,10 @@ memory = []
 # define least recently used algorithm
 def LRU():
 
-    # initialize number of page faults and page hits
+    # initialize page faults, page hits and index
     pageFaults = 0
     pageHits = 0
+    index = 0
 
     # algorithm runs until set is empty
     for i in set:
@@ -30,9 +32,12 @@ def LRU():
             # if length of memory reaches intended capacity
             else:
 
-                # remove first page in memory and add page from set into memory
-                memory.remove(memory[0])
-                memory.append(i)
+                # remove page in memory and add page from set into memory according to current index
+                memory.remove(memory[index])
+                memory.insert(index, i)
+
+                # increment index by 1
+                index += 1
 
             # increment page fault by 1 every time page in set does not exist in memory
             pageFaults += 1
@@ -40,12 +45,13 @@ def LRU():
         # if page in set exists in memory
         else:
 
-            # remove existing page in memory and add new page from set into memory
-            memory.remove(i)
-            memory.append(i)
-
-            # increment page hit by 1 every time page in set already exists in memory
+            # increment page hit and index by 1 every time page in set already exists in memory
             pageHits += 1
+            index += 1
+
+        # revert index to 0 if index is above 3 or if page faults is 4
+        if index > 3 or pageFaults == 4:
+            index = 0
 
         # print memory, page faults and page hits onto output
         print('Set:', memory)
