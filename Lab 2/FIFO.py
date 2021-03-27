@@ -12,9 +12,11 @@ for i in range(len(job)):
     for k in range(len(pageFrame)):
         if (pageFrame[k] == job[i]):
             check = True
+            print(job[i]," >> hit",pageFrame)
             hit += 1
     if (check == False):
         pageFrame[j] = job[i]
+        print(job[i]," >> in",pageFrame)
         j += 1
         if(j >= len(pageFrame)):
             j = 0
