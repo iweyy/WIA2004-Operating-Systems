@@ -5,17 +5,17 @@ capacity = 4
 set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 9]
 # set = [8, 2, 7, 4, 8, 6, 3, 5, 3, 1, 0, 7, 5, 9, 6]
 
-# initialize number of page slots in memory
-memory = []
+# initialize memory slots
+memory = {}
 
 
 # define least recently used algorithm
 def LRU():
 
-    # initialize page faults, page hits and index
+    # initialize page faults and page hits
     pageFaults = 0
     pageHits = 0
-    index = 0
+    index = 1
 
     # algorithm runs until set is empty
     for i in set:
@@ -24,34 +24,35 @@ def LRU():
         if i not in memory:
 
             # if length of memory does not reach intended capacity
-            if len(memory) < capacity:
+            if index <= 4:
 
                 # add page from set into memory
-                memory.append(i)
+                memory[index] = i
+                index += 1
 
             # if length of memory reaches intended capacity
             else:
 
-                # remove page in memory and add page from set into memory according to current index
-                memory.remove(memory[index])
-                memory.insert(index, i)
+                # remove least recently used page in memory and add page from set into memory according to the index
+                memory[2] = memory[1]
+                memory[3] = memory[2]
+                memory[4] = memory[3]
+                memory[1] = i
 
-                # increment index by 1
-                index += 1
-
-            # increment page fault by 1 every time page in set does not exist in memory
+            # increment page fault by 1
             pageFaults += 1
 
         # if page in set exists in memory
         else:
 
-            # increment page hit and index by 1 every time page in set already exists in memory
-            pageHits += 1
-            index += 1
+            # remove least recently used page in memory and add page from set into memory according to the index
+            memory[2] = memory[1]
+            memory[3] = memory[2]
+            memory[4] = memory[3]
+            memory[1] = i
 
-        # revert index to 0 if index is above 3 or if page faults is 4
-        if index > 3 or pageFaults == 4:
-            index = 0
+            # increment page hit by 1
+            pageHits += 1
 
         # print memory, page faults and page hits onto output
         print('Set:', memory)
