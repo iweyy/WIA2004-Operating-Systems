@@ -1,4 +1,4 @@
-pageFrame = list(range(2))
+pageFrame = list(range(4))
 job = ['a', 'b', 'a', 'c', 'a', 'b', 'd', 'b', 'a', 'c', 'd']
 
 for i in range(len(pageFrame)):
