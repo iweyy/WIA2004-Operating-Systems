@@ -2,8 +2,8 @@
 capacity = 4
 
 # initialize number of pages to be sent into memory
-# set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 9]
-set = [8, 2, 7, 4, 8, 6, 3, 5, 3, 1, 0, 7, 5, 9, 6]
+set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 9]
+# set = [8, 2, 7, 4, 8, 6, 3, 5, 3, 1, 0, 7, 5, 9, 6]
 
 # initialize number of page slots in memory
 memory = []
