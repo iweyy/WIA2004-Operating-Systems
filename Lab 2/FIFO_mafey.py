@@ -8,10 +8,11 @@ set = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
 # intialize number of page slots in memory
 memory = []
 
+
 # define first in first out algorithm
 def FIFO():
 
-    #initialize page faults, page hits and index 
+    # initialize page faults, page hits and index
     pageFaults = 0
     pageHits = 0
     index = 0
@@ -33,7 +34,7 @@ def FIFO():
 
                 # remove page in memory and add page from set into memory according to current index
                 memory.remove(memory[index])
-                memory.insert(index,i)
+                memory.insert(index, i)
 
                 # increment index by 1
                 index += 1
