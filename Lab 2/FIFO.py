@@ -1,5 +1,5 @@
 pageFrame = list(range(4))
-job = ['a', 'b', 'a', 'c', 'a', 'b', 'd', 'b', 'a', 'c', 'd']
+job = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2]
 
 for i in range(len(pageFrame)):
     pageFrame[i] = -1
