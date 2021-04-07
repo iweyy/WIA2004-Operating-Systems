@@ -1,8 +1,8 @@
-arrivalTime=[0,0,0,0]
-cpuCycle=[8,4,9,5]
+arrivalTime=[0,2,2,3]
+cpuCycle=[9,3,3,5]
 temp_cc=[]
 n=len(cpuCycle)
-qt=4
+quanTime=4
 jobDone=[]
 wt=[]
 tt=[]
@@ -13,15 +13,15 @@ for i in cpuCycle:
     temp_cc.append(i)   # update cpu cycle
 
 while remain!=0:
-    if temp_cc[count]<=qt and temp_cc[count]>0:
+    if temp_cc[count]<=quanTime and temp_cc[count]>0:
         time+=temp_cc[count]
         temp_cc[count]=0
         flag=1  # indicate the Job is done
         seq+="->P"+str((count+1))
         print("Job P"+str(count+1)," is coming in and done")
     elif temp_cc[count]>0:
-        temp_cc[count]-=qt
-        time+=qt
+        temp_cc[count]-=quanTime
+        time+=quanTime
         seq+="->P"+str((count+1))
         print("Job P"+str(count+1)," is coming in")
     if temp_cc[count]==0 and flag==1:
